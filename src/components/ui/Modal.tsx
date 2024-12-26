@@ -25,7 +25,10 @@ export const Modal: React.FC<ModalProps> = ({
         
         <div 
           className="relative inline-block w-full p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-lg"
-          style={{ maxWidth: maxWidth }}
+          style={{ 
+            maxWidth: maxWidth,
+            maxHeight: '50vh'
+          }}
         >
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
@@ -37,7 +40,7 @@ export const Modal: React.FC<ModalProps> = ({
             </button>
           </div>
           
-          <div className="max-h-[75vh] overflow-y-auto">
+          <div className="overflow-y-auto" style={{ maxHeight: 'calc(50vh - 120px)' }}>
             {children}
           </div>
         </div>

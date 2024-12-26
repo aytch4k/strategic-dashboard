@@ -25,9 +25,9 @@ export const useGridStore = create<GridStore>()(
         { id: 'milestone', type: 'milestone', gridSize: { x: 3, y: 1 } },
         { id: 'gtm', type: 'gtm', gridSize: { x: 3, y: 1 } },
         { id: 'ecosystem', type: 'ecosystem', gridSize: { x: 3, y: 1 } },
-        { id: 'nodeSale', type: 'nodeSale', gridSize: { x: 2, y: 2 } },
-        { id: 'security', type: 'security', gridSize: { x: 2, y: 2 } },
-        { id: 'kpi', type: 'kpi', gridSize: { x: 2, y: 2 } },
+        { id: 'nodeSale', type: 'nodeSale', gridSize: { x: 2, y: 1 } },
+        { id: 'security', type: 'security', gridSize: { x: 2, y: 1 } },
+        { id: 'kpi', type: 'kpi', gridSize: { x:2 , y: 1 } },
       ],
       setEditing: (isEditing) => set({ isEditing }),
       updateGridItem: (id, size) =>

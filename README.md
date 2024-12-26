@@ -2,8 +2,6 @@
 
 A real-time dashboard built with React and TypeScript that integrates with Linear and Google Sheets to provide comprehensive company metrics and KPIs.
 
-![Dashboard Preview](https://github.com/aytch4k/strategic-dashboard/blob/main/demo/landing.png?auto=format&fit=crop&q=80&w=2426&h=600)
-
 ## Features
 
 - 📊 Real-time metrics visualization

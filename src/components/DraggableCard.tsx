@@ -42,9 +42,7 @@ export const DraggableCard: React.FC<DraggableCardProps> = ({
         isDragging ? 'opacity-50' : ''
       } ${isEditing ? 'cursor-move' : ''}`}
     >
-      {isEditing && (
-        <CardControls id={id} currentSize={gridSize} />
-      )}
+      <CardControls id={id} currentSize={gridSize} />
       <div className="h-full">
         {children}
       </div>

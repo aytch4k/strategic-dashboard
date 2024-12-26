@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MoreVertical, Eye, EyeOff } from 'lucide-react';
+import { MoreVertical, Eye, EyeOff, Database } from 'lucide-react';
 import { useGridStore } from '../store/gridStore';
+import { SheetLink } from './StatusBar/SheetLink';
+import { getSheetNameForCard } from '../utils/sheetMapping';
 
 interface CardControlsProps {
   id: string;
@@ -13,6 +15,8 @@ export const CardControls: React.FC<CardControlsProps> = ({ id, currentSize }) =
   const menuRef = useRef<HTMLDivElement>(null);
   const longPressTimer = useRef<NodeJS.Timeout>();
   const { updateGridItem, hideCard } = useGridStore();
+  const sheetId = import.meta.env.VITE_GOOGLE_SHEETS_ID;
+  const timelineSheetId = import.meta.env.VITE_TIMELINE_SHEETS_ID;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -48,6 +52,10 @@ export const CardControls: React.FC<CardControlsProps> = ({ id, currentSize }) =
     setLongPressActive(false);
   };
 
+  const sheetName = getSheetNameForCard(id);
+  // Use timelineSheetId for strategies, milestone, gtm, ecosystem, and nodeSale
+  const sourceSheetId = ['strategies', 'milestone', 'gtm', 'ecosystem', 'nodeSale'].includes(id) ? timelineSheetId : sheetId;
+
   return (
     <div ref={menuRef} className="absolute top-2 right-2 z-20">
       <div
@@ -78,6 +86,15 @@ export const CardControls: React.FC<CardControlsProps> = ({ id, currentSize }) =
             <option value="3x1">Extra Wide (3x1)</option>
             <option value="3x2">Extra Large (3x2)</option>
           </select>
+
+          {sheetName && (
+            <SheetLink sheetId={sourceSheetId} sheetName={sheetName}>
+              <button className="w-full px-3 py-2 text-left text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                <Database className="w-4 h-4" />
+                View Source
+              </button>
+            </SheetLink>
+          )}
 
           <button
             onClick={() => {

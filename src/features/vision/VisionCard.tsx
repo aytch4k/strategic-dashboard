@@ -55,7 +55,7 @@ export const VisionCard: React.FC<VisionCardProps> = ({ status = 'healthy' }) =>
         <h3 className="text-xl font-semibold">{vision.title}</h3>
       </div>
       <p className="text-lg opacity-90 mb-4">{vision.description}</p>
-      <div className="text-sm opacity-75">Quarter {vision.quarterYear}</div>
+      <div className="text-sm opacity-75">{vision.quarterYear}</div>
     </div>
   );
 };

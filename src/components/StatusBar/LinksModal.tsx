@@ -21,7 +21,7 @@ export const LinksModal: React.FC<LinksModalProps> = ({ isOpen, onClose }) => {
   const links = Array.isArray(data?.links) ? data.links : [];
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Quick Links">
+    <Modal isOpen={isOpen} onClose={onClose} title="Quick Links" maxWidth="50%">
       {loading ? (
         <div className="space-y-4">
           {Array.from({ length: 3 }, (_, i) => (
@@ -36,7 +36,7 @@ export const LinksModal: React.FC<LinksModalProps> = ({ isOpen, onClose }) => {
       ) : links.length === 0 ? (
         <div className="text-gray-500 text-center py-4">No links available</div>
       ) : (
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-4">
           {links.map((link: Link) => (
             <a
               key={link.ID}
